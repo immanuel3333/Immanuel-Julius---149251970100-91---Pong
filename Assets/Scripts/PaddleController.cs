@@ -42,7 +42,9 @@ public class PaddleController : MonoBehaviour
     {
         //Gerakkan object pake input
         // transform.Translate(movement * Time.deltaTime);
+        Debug.Log("Kecepatan: " + speed);
         rig.velocity = movement;
+
 
     }
 }
