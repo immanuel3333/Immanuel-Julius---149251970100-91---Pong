@@ -6,10 +6,12 @@ public class PaddleController : MonoBehaviour
 {
     //private Vector2 speed;
     public int speed;
+    public int oldSpeed;
     public KeyCode upKey;
     public KeyCode downKey;
-
     private Rigidbody2D rig;
+    private Vector3 newSize;
+    private Vector3 oldSize;
 
     private void Start()
     {
@@ -46,6 +48,36 @@ public class PaddleController : MonoBehaviour
         rig.velocity = movement;
 
 
+    }
+
+    public void ActivatePUExtendPaddle(int extension)
+    {
+        newSize = transform.localScale;
+        oldSize = newSize;
+
+        newSize.y *= extension;
+
+        transform.localScale = newSize;
+
+        Invoke("ReturnPaddleSize", 5f);
+    }
+
+    public void ReturnPaddleSize()
+    {
+        transform.localScale = oldSize;
+    }
+
+    public void ActivatePUAcceleratePaddle(int acceleration)
+    {
+        oldSpeed = speed;
+        speed *= acceleration;
+
+        Invoke("ReturnPaddleSpeed", 5f);
+    }
+
+    public void ReturnPaddleSpeed()
+    {
+        speed = oldSpeed;
     }
 }
 

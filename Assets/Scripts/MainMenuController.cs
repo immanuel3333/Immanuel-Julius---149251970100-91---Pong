@@ -10,4 +10,14 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Game");
         Debug.Log("Created By Immanuel Julius-149251970100-91");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void OpenCredit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
 }
